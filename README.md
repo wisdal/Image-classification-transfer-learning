@@ -60,14 +60,16 @@ We just need to configure some basic parameters:
 
 Fill free to play with these parameters, given that you know  what you are doing. Remember that you can use the TensorBoard to visualize the result of your training.
 
-Learning rate, nb. of epochs, etc. are deterministic parameters of your model. Use them to fine-tune your model...
+Learning rate, nb. of epochs, etc. are deterministic parameters of your model. Use them to fine-tune your model.
 
 You may be able to get ~85% of accuracy to start with.
 
 #### Test the model on unseen records
 
-Once you are satisfied with the model you built, you can test it on the unlabelled images in test folder.
-Check out my [test.ipynb](https://github.com/wisdal/image-classification-transfer-learning/blob/master/test.ipynb) notebook for live prediction on the test data.
+Once you are satisfied with the model you built, test it on the unlabelled images in test folder.
+Check out my [test.ipynb](https://github.com/wisdal/image-classification-transfer-learning/blob/master/test.ipynb) notebook for live predictions on the test data.
+
+You may also submit your prediction in a csv file on the Hackerearth platform. Give it a try and share your performance.
 
 ## Requirements
 - Python >= 3.4 
