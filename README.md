@@ -31,7 +31,7 @@ By the way, The Bottleneck is just the informal name given to the last hidden la
 
 In a neural network, neurons are organized in layers. Different layers may perform different kinds of transformations on their inputs. Signals travel from the first layer (input), to the last (output), possibly after traversing the layers multiple times. As the last hidden layer, the Bottleneck has enough summarized information to provide the next layer which does the actual classification task.
 
-In the [retrain.py] script, we remove the old top layer, and train a new one on the pictures we have downloaded.
+In the [retrain.py](https://github.com/wisdal/image-classification-transfer-learning/blob/master/retrain.py) script, we remove the old top layer, and train a new one on the pictures we have downloaded.
 
 The reason our final layer retraining can work on new classes is that it turns out the kind of information needed to distinguish between all the 1000 classes in ImageNet is often also useful to distinguish between new kinds of objects.
 
@@ -43,7 +43,7 @@ Hold your excitement for a little while... the path is thorny, comrade!
 
 The downloaded dataset comes with a train folder that we need to set up properly. Our goal is to put each of the images in a subfolder representing its category. At the end, we will have x subfolders. With x being the number of distinct categories.
 
-For this preprocessing purpose, I provide you with the [pre_process.ipynb] notebook.
+For this preprocessing purpose, I provide you with the [pre_process.ipynb](https://github.com/wisdal/image-classification-transfer-learning/blob/master/pre_process.ipynb) notebook.
 
 #### Retraining the Bottleneck and Fine-tuning the model
 
@@ -67,7 +67,7 @@ You may be able to get ~85% of accuracy to start with.
 #### Test the model on unseen records
 
 Once you are satisfied with the model you built, you can test it on the unlabelled images in test folder.
-Check out my [test.ipynb] notebook for live prediction on the test data.
+Check out my [test.ipynb](https://github.com/wisdal/image-classification-transfer-learning/blob/master/test.ipynb) notebook for live prediction on the test data.
 
 ## Requirements
 - Python >= 3.4 
