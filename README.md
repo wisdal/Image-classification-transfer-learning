@@ -31,7 +31,7 @@ By the way, The Bottleneck is just the informal name given to the last hidden la
 
 In a neural network, neurons are organized in layers. Different layers may perform different kinds of transformations on their inputs. Signals travel from the first layer (input), to the last (output), possibly after traversing the layers multiple times. As the last hidden layer, the Bottleneck has enough summarized information to provide the next layer which does the actual classification task.
 
-In the retrain script, we remove the old top layer, and train a new one on the pictures we have downloaded.
+In the [retrain.py] script, we remove the old top layer, and train a new one on the pictures we have downloaded.
 
 The reason our final layer retraining can work on new classes is that it turns out the kind of information needed to distinguish between all the 1000 classes in ImageNet is often also useful to distinguish between new kinds of objects.
 
@@ -60,7 +60,7 @@ We just need to configure some basic parameters:
 
 Fill free to play with these parameters, given that you know  what you are doing. Remember that you can use the TensorBoard to visualize the result of your training.
 
-Learning rate, nb. of epochs, etc. are deterministic parameters of your model. Fine-tune your model...
+Learning rate, nb. of epochs, etc. are deterministic parameters of your model. Use them to fine-tune your model...
 
 You may be able to get ~85% of accuracy to start with.
 
