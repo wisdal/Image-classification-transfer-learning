@@ -1,37 +1,75 @@
-## Welcome to GitHub Pages
+## A Custom Image Classifier using Transfer Learning on Google Inception V3
 
-You can use the [editor on GitHub](https://github.com/wisdal/image-classification-transfer-learning/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+When we think of multi-class image classification, we usually consider building a deep learning model from scracth to fit the application we want to perform. This is one option. But building a deep learning model can take weeks, depending on your training dataset and the configuration of your network (your deep learning network).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+But did you know there already exists some models which perform pretty well in classifying images from various categories? Then you may have already heard of [ImageNet](http://www.image-net.org/), and its Large Visual Recognition Challenge. This is a standard task in computer vision, where models try to classify entire images into 1000 classes, like "Zebra", "Dalmatian", and "Dishwasher". 
+[Inception V3](https://research.googleblog.com/2016/03/train-your-own-image-classifier-with.html) is such a model. Released in 2015, it is a research product of Google Brain Team.
 
-### Markdown
+Can we take advantage of this existing model for a distinct image classification task ? Well, the concept has a name: [Transfer learning](https://en.wikipedia.org/wiki/Transfer_learning). It may be not as efficient as a full training from scratch, but is surprisingly effective for many applications. It allows model creation with significantly reduced training data and time by modifying existing rich deep learning models.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## What ?
 
-```markdown
-Syntax highlighted code block
+We will demonstrate the effectiveness of using Transfer Learning on Inception V3 with a custom task : building a powerful image classifier to categorize products images (Food & Grocery). This is to help a retailer reduce the amount of human effort in its warehouse and retail outlets. 
 
-# Header 1
-## Header 2
-### Header 3
+Problem Statement from [Hackerearth](https://www.hackerearth.com/fr/problem/machine-learning/identify-the-objects/description).
 
-- Bulleted
-- List
+[Download Dataset](https://he-s3.s3.amazonaws.com/media/hackathon/deep-learning-challenge-1/identify-the-objects/a0409a00-8-dataset_dp.zip)
 
-1. Numbered
-2. List
+## How ?
 
-**Bold** and _Italic_ and `Code` text
+We will build our classifier in 5 steps :
 
-[Link](url) and ![Image](src)
-```
+1. Preprocess dataset (set up image folder, data augmentation, etc.).
+2. Download the Inception V3 [pre-trained model](http://download.tensorflow.org/models/image/imagenet/inception-v3-2016-03-01.tar.gz). The retrain script will download it by default.
+3. Retrain the Bottleneck. That sounds weird right :) ?
+4. Fine-tune the model.
+5. Test the model.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+By the way, The Bottleneck is just the informal name given to the last hidden layer of a deep neural network.
 
-### Jekyll Themes
+## Why does it work ?
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/wisdal/image-classification-transfer-learning/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+In a neural network, neurons are organized in layers. Different layers may perform different kinds of transformations on their inputs. Signals travel from the first layer (input), to the last (output), possibly after traversing the layers multiple times. As the last hidden layer, the Bottleneck has enough summarized information to provide the next layer which does the actual classification task.
 
-### Support or Contact
+In the retrain script, we remove the old top layer, and train a new one on the pictures we have downloaded.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+The reason our final layer retraining can work on new classes is that it turns out the kind of information needed to distinguish between all the 1000 classes in ImageNet is often also useful to distinguish between new kinds of objects.
+
+## Step by step
+
+Hold your excitement for a little while... the path is thorny, comrade!
+
+#### Data Preprocessing
+
+The downloaded dataset comes with a train folder that we need to set up properly. Our goal is to put each of the images in a subfolder representing its category. At the end, we will have x subfolders. With x being the number of distinct categories.
+
+For this preprocessing purpose, I provide you with the [pre_process.ipynb] notebook.
+
+#### Retraining the Bottleneck and Fine-tuning the model
+
+Courtesy of Google, we have the retrain.py script to start right away.
+
+We just need to configure some basic parameters:
+- image_dir: path to folder of labeled images.
+- output_graph, intermediate_output_graphs_dir, output_labels, etc.: where to save output files.
+- distortion features.
+- ...
+- how_many_training_steps: number of epochs.
+- learning rate.
+- ...
+
+Fill free to play with these parameters, given that you know  what you are doing. Remember that you can use the TensorBoard to visualize the result of your training.
+
+Learning rate, nb. of epochs, etc. are deterministic parameters of your model. Fine-tune your model...
+
+You may be able to get ~85% of accuracy to start with.
+
+#### Test the model on unseen records
+
+Once you are satisfied with the model you built, you can test it on the unlabelled images in test folder.
+Check out my [test.ipynb] notebook for live prediction on the test data.
+
+## Requirements
+- Python >= 3.4 
+- TensorFlow
+
