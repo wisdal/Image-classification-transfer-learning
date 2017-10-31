@@ -75,4 +75,4 @@ You may also submit your prediction in a csv file on the Hackerearth platform. G
 - Python >= 3.4 
 - TensorFlow
 
-Feel free to contact me: [wdalmeida6@gmail.com](wdalmeida6@gmail.com)
+Feel free to contact me: [wdalmeida6@gmail.com](mailto:wdalmeida6@gmail.com)
