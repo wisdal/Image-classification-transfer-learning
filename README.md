@@ -25,7 +25,7 @@ We will build our classifier in 5 steps :
 4. Fine-tune the model.
 5. Test the model.
 
-By the way, The Bottleneck is just the informal name given to the last hidden layer of a deep neural network.
+By the way, "Bottleneck" is just the informal name given to the last hidden layer of a deep neural network.
 
 ## Why does it work ?
 
@@ -75,3 +75,4 @@ You may also submit your prediction in a csv file on the Hackerearth platform. G
 - Python >= 3.4 
 - TensorFlow
 
+Feel free to contact me: [wdalmeida6@gmail.com](wdalmeida6@gmail.com)
