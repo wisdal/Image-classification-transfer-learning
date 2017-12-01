@@ -1,11 +1,11 @@
 ## A Custom Image Classifier using Transfer Learning on Google Inception V3
 
-When we think of multi-class image classification, we usually consider building a deep learning model from scracth to fit the application we want to perform. This is one option. But building a deep learning model can take weeks, depending on your training dataset and the configuration of your network (your deep learning network).
+When we think of multi-class image classification, we usually consider building our model from scracth for best fit, we say. This is one option. But building a deep learning model can take weeks, depending on your training dataset and the configuration of your network (your deep learning network).
 
 But did you know there already exists some models which perform pretty well in classifying images from various categories? Then you may have already heard of [ImageNet](http://www.image-net.org/), and its Large Visual Recognition Challenge. This is a standard task in computer vision, where models try to classify entire images into 1000 classes, like "Zebra", "Dalmatian", and "Dishwasher". 
 [Inception V3](https://research.googleblog.com/2016/03/train-your-own-image-classifier-with.html) is such a model. Released in 2015, it is a research product of Google Brain Team.
 
-Can we take advantage of this existing model for a distinct image classification task ? Well, the concept has a name: [Transfer learning](https://en.wikipedia.org/wiki/Transfer_learning). It may be not as efficient as a full training from scratch, but is surprisingly effective for many applications. It allows model creation with significantly reduced training data and time by modifying existing rich deep learning models.
+Can we take advantage of this existing model for a distinct image classification task ? Well, the concept has a name: [Transfer learning](https://en.wikipedia.org/wiki/Transfer_learning). It may not be as efficient as a full training from scratch, but is surprisingly effective for many applications. It allows model creation with significantly reduced training data and time by modifying existing rich deep learning models.
 
 ## What ?
 
@@ -41,7 +41,7 @@ Hold your excitement for a little while... the path is thorny, comrade!
 
 #### Data Preprocessing
 
-The downloaded dataset comes with a train folder that we need to set up properly. Our goal is to put each of the images in a subfolder representing its category. At the end, we will have x subfolders. With x being the number of distinct categories.
+The downloaded dataset comes with a train folder that we need to set up properly. Our goal is to put each of the images in a subfolder representing its category. At the end, we will have x subfolders. With x the number of distinct categories.
 
 For this preprocessing purpose, I provide you with the [pre_process.ipynb](https://github.com/wisdal/image-classification-transfer-learning/blob/master/pre_process.ipynb) notebook.
 
@@ -60,7 +60,7 @@ We just need to configure some basic parameters:
 
 Fill free to play with these parameters, given that you know  what you are doing. Remember that you can use the TensorBoard to visualize the result of your training.
 
-Learning rate, nb. of epochs, etc. are deterministic parameters of your model. Use them to fine-tune your model.
+Learning rate, nb. of epochs, etc. are deterministic parameters. Use them to fine-tune your model.
 
 You may be able to get ~85% of accuracy to start with.
 
