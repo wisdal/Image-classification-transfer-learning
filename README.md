@@ -41,7 +41,7 @@ Hold your excitement for a little while... the path is thorny, comrade!
 
 #### Data Preprocessing
 
-The downloaded dataset comes with a train folder that we need to set up properly. Our goal is to put each of the images in a subfolder representing its category. At the end, we will have x subfolders. With x the number of distinct categories.
+The downloaded dataset comes with a train folder that we need to set up properly. Our goal is to put each of the images in a subfolder representing its category. At the end, we will have x subfolders, With x the number of distinct categories.
 
 For this preprocessing purpose, I provide you with the [pre_process.ipynb](https://github.com/wisdal/image-classification-transfer-learning/blob/master/pre_process.ipynb) notebook.
 
@@ -58,7 +58,7 @@ We just need to configure some basic parameters:
 - learning rate.
 - ...
 
-Fill free to play with these parameters, given that you know  what you are doing. Remember that you can use the TensorBoard to visualize the result of your training.
+Fill free to play with these parameters, given you know  what you are doing. Remember that you can use the TensorBoard to visualize the resultS of your training.
 
 Learning rate, nb. of epochs, etc. are deterministic parameters. Use them to fine-tune your model.
 
