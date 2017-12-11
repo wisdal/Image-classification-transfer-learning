@@ -78,5 +78,5 @@ You may also submit your prediction in a csv file on the Hackerearth platform. G
 Feel free to contact me: [wdalmeida6@gmail.com](mailto:wdalmeida6@gmail.com)
 
 ## Resources
-[tensorflow.org](https://www.tensorflow.org/tutorials/image_recognition)
+[tensorflow.org/tutorials/image_recognition](https://www.tensorflow.org/tutorials/image_recognition)
 
